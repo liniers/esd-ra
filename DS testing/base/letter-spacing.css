@@ -1,0 +1,24 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+:root {
+  --letter-spacing-semantic-display-l-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-display-m-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-display-s-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-heading-l-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-heading-m-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-heading-s-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-title-l-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-title-m-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-title-s-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-body-l-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-body-m-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-body-s-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-body-xs-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-label-l-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-label-m-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-label-s-letter-spacing: var(--dimension-core-letter-spacing-none);
+  --letter-spacing-semantic-label-xs-letter-spacing: var(--dimension-core-letter-spacing-none);
+}

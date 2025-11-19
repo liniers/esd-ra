@@ -1,0 +1,71 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+.theme-high-contrast {
+  --typography-display-large: var(--string-semantic-display-l-font-weight) var(--font-size-semantic-display-l-font-size)/120% var(--font-family-core-font-family-primary);
+  /* Hero title */
+  --typography-display-medium: var(--string-semantic-display-l-font-weight) var(--font-size-semantic-display-m-font-size)/120% var(--font-family-core-font-family-primary);
+  --typography-display-small: var(--string-semantic-display-s-font-weight) var(--font-size-semantic-display-s-font-size)/120% var(--font-family-core-font-family-primary);
+  --typography-heading-large: var(--string-semantic-heading-l-font-weight) var(--font-size-semantic-heading-l-font-size)/120% "Twogether Sans";
+  --typography-heading-medium: var(--string-semantic-heading-m-font-weight) var(--font-size-semantic-heading-m-font-size)/120% "Twogether Sans";
+  --typography-heading-small: var(--string-semantic-heading-s-font-weight) var(--font-size-semantic-heading-s-font-size)/120% "Twogether Sans";
+  /* Headings within components */
+  --typography-title-large: var(--string-semantic-title-l-font-weight) var(--font-size-semantic-title-l-font-size)/120% "Twogether Sans";
+  /* Headings within components */
+  --typography-title-medium: var(--string-semantic-title-m-font-weight) var(--font-size-semantic-title-m-font-size)/120% "Twogether Sans";
+  --typography-title-small: var(--string-semantic-title-s-font-weight) 18px/120% "Twogether Sans";
+  --typography-body-large: var(--string-semantic-body-l-font-weight) var(--font-size-semantic-body-l-font-size)/140% "Twogether Sans";
+  /* Buttons, Links */
+  --typography-body-medium: var(--string-semantic-body-m-font-weight) var(--font-size-semantic-body-m-font-size)/140% "Twogether Sans";
+  --typography-body-small: var(--string-semantic-body-s-font-weight) var(--font-size-semantic-body-s-font-size)/140% "Twogether Sans";
+  --typography-body-extra-small: var(--string-semantic-body-xs-font-weight) var(--font-size-semantic-body-xs-font-size)/var(--line-height-semantic-body-xs-line-height) var(--font-family-core-font-family-secondary);
+  --typography-label-large: var(--string-semantic-label-l-font-weight) var(--font-size-semantic-label-l-font-size)/120% "Twogether Sans";
+  --typography-label-medium: var(--string-semantic-label-m-font-weight) var(--font-size-semantic-label-m-font-size)/120% "Twogether Sans";
+  --typography-label-small: var(--string-semantic-label-s-font-weight) var(--font-size-semantic-label-s-font-size)/120% "Twogether Sans";
+  /* Small Pills */
+  --typography-label-extra-small: var(--string-semantic-label-xs-font-weight) var(--font-size-semantic-label-xs-font-size)/var(--line-height-semantic-label-xs-line-height) var(--font-family-core-font-family-secondary);
+  --typography-eight-shapes-spec-annotations-marker: 700 14px "Inter";
+  --typography-eight-shapes-spec-annotations-marker-small: 700 12px "Inter";
+  --typography-eight-shapes-spec-annotations-space-size: 700 12px "Inter";
+  --typography-eight-shapes-spec-annotations-space-pill: 400 11px "Inter";
+  --typography-eight-shapes-spec-heading-title: 700 64px "Inter";
+  --typography-eight-shapes-spec-heading-section: 700 48px "Inter";
+  --typography-eight-shapes-spec-heading-subsection: 700 36px "Inter";
+  --typography-eight-shapes-spec-heading-subsection-metadata: 400 16px "Inter";
+  --typography-eight-shapes-spec-table-column-header: 700 12px "Inter";
+  --typography-eight-shapes-spec-text-label: 700 24px "Inter";
+  --typography-eight-shapes-spec-text-element: 700 16px "Inter";
+  --typography-eight-shapes-spec-text-element-type: 400 16px "Inter";
+  --typography-eight-shapes-spec-text-attribute-property: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-attribute-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-token-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-style-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-variable-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-variable-collection-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-dependency-value: 700 12px "Inter";
+  --typography-eight-shapes-spec-text-message: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-label-metadata: 400 18px "Inter";
+  --typography-eight-shapes-spec-annotations-marker: 700 14px "Inter";
+  --typography-eight-shapes-spec-annotations-marker-small: 700 12px "Inter";
+  --typography-eight-shapes-spec-annotations-space-size: 700 12px "Inter";
+  --typography-eight-shapes-spec-annotations-space-pill: 400 11px "Inter";
+  --typography-eight-shapes-spec-heading-title: 700 64px "Inter";
+  --typography-eight-shapes-spec-heading-section: 700 48px "Inter";
+  --typography-eight-shapes-spec-heading-subsection: 700 36px "Inter";
+  --typography-eight-shapes-spec-heading-subsection-metadata: 400 16px "Inter";
+  --typography-eight-shapes-spec-table-column-header: 700 12px "Inter";
+  --typography-eight-shapes-spec-text-label: 700 24px "Inter";
+  --typography-eight-shapes-spec-text-element: 700 16px "Inter";
+  --typography-eight-shapes-spec-text-element-type: 400 16px "Inter";
+  --typography-eight-shapes-spec-text-attribute-property: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-attribute-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-token-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-style-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-variable-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-variable-collection-value: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-dependency-value: 700 12px "Inter";
+  --typography-eight-shapes-spec-text-message: 400 12px "Inter";
+  --typography-eight-shapes-spec-text-label-metadata: 400 18px "Inter";
+}

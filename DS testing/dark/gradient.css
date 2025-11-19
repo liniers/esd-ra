@@ -1,0 +1,10 @@
+/**
+ * This file was generated automatically by Supernova.io and should not be changed manually.
+ * To modify the format or content of this file, please contact your design system team. 
+ */
+
+.theme-dark {
+  --gradient-accent: radial-gradient(circle, #a54277 0%, #773357 100%);
+  --gradient-border-glass: linear-gradient(180deg, rgba(var(--color-sem-border-highest), 1) 0%, #ffffff00 100%);
+  --gradient-border-glass: linear-gradient(180deg, rgba(var(--color-sem-border-highest), 1) 0%, #ffffff00 100%);
+}
