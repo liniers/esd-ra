@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: white;
+    width: 100vw;
+    height: 100%;
+    background: white;
+    /* overflow: hidden; */
+}
+
+#main span{
+    display: inline-block;
+}
+
+
+
+

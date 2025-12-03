@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect x="98.051" y="95.006" width="300.853" height="305.725" style="stroke: rgb(0, 0, 0); fill-rule: nonzero; fill: rgb(29, 234, 234);"/>
+  <g>
+    <ellipse style="fill: rgb(255, 252, 252);" cx="176.918" cy="174.178" rx="40.499" ry="25.579"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="214.373" cy="166.261" rx="29.842" ry="24.361"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="228.076" cy="195.798" rx="35.018" ry="16.139"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="258.831" cy="178.745" rx="27.406" ry="19.184"/>
+  </g>
+  <g transform="matrix(1, 0, 0, 1, 57.246925, 134.591873)">
+    <ellipse style="fill: rgb(255, 252, 252);" cx="176.918" cy="174.178" rx="40.499" ry="25.579"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="214.373" cy="166.261" rx="29.842" ry="24.361"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="228.076" cy="195.798" rx="35.018" ry="16.139"/>
+    <ellipse style="fill: rgb(255, 255, 255);" cx="258.831" cy="178.745" rx="27.406" ry="19.184"/>
+  </g>
+</svg>
