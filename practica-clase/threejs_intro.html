@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica clase THREE JS</title>
+
+    <script type="importmap"> 
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+<body>
+    
+    <script type="module">
+
+        import * as THREE from 'three'; 
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; 
+
+        let scene, camera, renderer;
+        let cube;
+        let modelo;
+        const MODEL_PATH = "assets/Patito_low.glb"; 
+
+
+        init();
+
+        function init() {
+
+            // Crear contenedor
+
+            const container = document.createElement( 'div' );
+
+            // Crear renderer
+            renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } ); // Antialias = suaviza bordes, alpha = transparencia
+            renderer.setPixelRatio( window.devicePixelRatio ); // Calidad del renderizado
+            renderer.setSize( window.innerWidth, window.innerHeight ); // Tamaño del renderizado
+            renderer.setAnimationLoop( animate ); // Llama a la función animate en cada frame
+
+
+            // Crear camara
+            camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+
+
+            // Crear escena
+            scene = new THREE.Scene();
+
+
+            // Crear nuestro objeto 3D con maya y texturas
+            //const geometry = new THREE.DodecahedronGeometry();
+            //const material = new THREE.MeshBasicMaterial( { color: 0xd0596e } );
+            //const dodecahedron = new THREE.Mesh( geometry, material );
+            //dodecahedron.position.z = -5; // Alejar el objeto 3D de la camara
+
+            let loader = new GLTFLoader();
+            loader.load(MODEL_PATH, function (gltf) {
+                    modelo = gltf.scene;
+                    modelo.scale.set(1,1,1);
+                    modelo.position.z = -1;
+                    modelo.position.y = 0;
+                    scene.add(modelo);
+                }, undefined, function (error) {
+                    console.error(error);
+                }
+            );
+
+
+            // Crear luz
+            const defaultLight = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 3 );
+            
+            defaultLight.position.set( 0.5, 1, 0.25 );
+
+            // Guardar objeto 3D en la escena
+            //scene.add( dodecahedron );
+
+            // Guardar la luz en la escena
+            scene.add( defaultLight );
+
+            // Añadir el renderer al contenedor
+            container.appendChild( renderer.domElement ); 
+
+            // Añadir el contenedor al body
+            document.body.appendChild( container );
+
+        }
+
+        // Creamos los controles de ratón
+        let controls = new OrbitControls( camera, renderer.domElement ); // Asociar los controles a la camara y al renderer
+        controls.maxPolarAngle = Math.PI / 2; // Limitar el ángulo de rotación vertical
+        controls.minPolarAngle = Math.PI / 3; // Limitar el ángulo de rotación vertical
+        controls.enableDamping = true; // Suaviza el movimiento
+        controls.enablePan = false; // Deshabilita el movimiento de paneo
+        controls.dampingFactor = 0.1; // Factor de suavizado
+        controls.autoRotate = false; // Habilita la rotación automática
+        controls.autoRotateSpeed = 0.5; // Velocidad de la rotación automática
+
+        function animate(){
+
+            // Guardar la camara y la escena al renderer
+            renderer.render( scene, camera );
+            controls.update();
+        }
+
+
+
+    </script> 
+
+</body>
+</html>

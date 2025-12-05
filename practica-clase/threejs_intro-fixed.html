@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica clase THREE JS</title>
+
+    <script type="importmap"> 
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+<body>
+    
+    <script type="module">
+
+        import * as THREE from 'three'; 
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; 
+
+        let scene, camera, renderer;
+        let cube;
+        let controls;
+        let dodecahedron;
+        // Variables para rotación por arrastre
+        let isPointerDown = false;
+        let prevPointer = { x: 0, y: 0 };
+        let velocity = { x: 0, y: 0 };
+        let rotationSpeed = 0.005;
+        // Modelo 3D
+        const MODEL_PATH = "assets/Patito_low.glb";
+        let modelo;
+
+        init();
+
+        function init() {
+
+            // Crear contenedor
+
+            const container = document.createElement( 'div' );
+
+            // Crear renderer
+            renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } ); // Antialias = suaviza bordes, alpha = transparencia
+            renderer.setPixelRatio( window.devicePixelRatio ); // Calidad del renderizado
+            renderer.setSize( window.innerWidth, window.innerHeight ); // Tamaño del renderizado
+            renderer.setAnimationLoop( animate ); // Llama a la función animate en cada frame
+
+
+            // Crear camara
+            camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+
+
+            // Crear escena
+            scene = new THREE.Scene();
+
+
+            // Crear nuestro objeto 3D con maya y texturas
+            /*const geometry = new THREE.DodecahedronGeometry();
+            const material = new THREE.MeshBasicMaterial( { color: 0xd0596e } );
+            dodecahedron = new THREE.Mesh( geometry, material );
+            dodecahedron.position.z = -5; // Alejar el objeto 3D de la camara*/
+
+            // Cargar modelo 3D con GLTFLoader
+            let loader = new GLTFLoader();
+            loader.load(MODEL_PATH, function (gltf) {
+                    modelo = gltf.scene;
+                    modelo.scale.set(1,1,1);
+                    modelo.position.z = -.5;
+                    modelo.position.y = 0;
+                    scene.add(modelo);
+                },
+                undefined,
+                function (error) {
+                    console.error(error);
+                }
+            );
+
+
+            // Crear luz
+            const defaultLight = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 3 );
+            defaultLight.position.set( 0.5, 1, 0.25 );
+
+            // Guardar objeto 3D en la escena
+            // scene.add( dodecahedron );
+
+            // Guardar la luz en la escena
+            scene.add( defaultLight );
+
+            // Añadir el renderer al contenedor
+            container.appendChild( renderer.domElement ); 
+
+            // Añadir el contenedor al body
+            document.body.appendChild( container );
+
+            // Crear los controles de ratón (OrbitControls) para la cámara
+            controls = new OrbitControls( camera, renderer.domElement );
+            controls.maxPolarAngle = Math.PI / 2; // Limitar el ángulo de rotación vertical
+            controls.minPolarAngle = Math.PI / 3; // Limitar el ángulo de rotación vertical
+            controls.enableDamping = true; // Suaviza el movimiento
+            controls.enablePan = false; // Deshabilita el movimiento de paneo
+            controls.dampingFactor = 0.1; // Factor de suavizado
+            controls.autoRotate = false; // Habilita la rotación automática
+            controls.autoRotateSpeed = 0.5; // Velocidad de la rotación automática
+            controls.target.set(0, 0, -5);
+            controls.update();
+
+            // --- Rotación del objeto con el ratón ---
+            // (usar variables definidas a nivel superior)
+            isPointerDown = false;
+            prevPointer.x = 0; prevPointer.y = 0;
+            velocity.x = 0; velocity.y = 0;
+            rotationSpeed = 0.005; // Ajusta sensibilidad
+
+            const el = renderer.domElement;
+
+            el.addEventListener('pointerdown', (ev) => {
+                isPointerDown = true;
+                prevPointer.x = ev.clientX;
+                prevPointer.y = ev.clientY;
+                try { el.setPointerCapture(ev.pointerId); } catch (e) {}
+                // Desactivar OrbitControls mientras arrastramos el objeto
+                if (controls) controls.enabled = false;
+            });
+
+            el.addEventListener('pointermove', (ev) => {
+                if (!isPointerDown) return;
+                const dx = ev.clientX - prevPointer.x;
+                const dy = ev.clientY - prevPointer.y;
+                // Aplicar rotación al objeto
+                if (dodecahedron) {
+                    dodecahedron.rotation.y += dx * rotationSpeed;
+                    dodecahedron.rotation.x += dy * rotationSpeed;
+                }
+                // Guardar velocidad para inercia
+                velocity.x = dx * rotationSpeed;
+                velocity.y = dy * rotationSpeed;
+                prevPointer.x = ev.clientX;
+                prevPointer.y = ev.clientY;
+            });
+
+            const releasePointer = (ev) => {
+                isPointerDown = false;
+                try { el.releasePointerCapture && el.releasePointerCapture(ev.pointerId); } catch (e) {}
+                if (controls) controls.enabled = true;
+            };
+
+            el.addEventListener('pointerup', releasePointer);
+            el.addEventListener('pointercancel', releasePointer);
+            el.addEventListener('pointerleave', releasePointer);
+
+        }
+
+        function animate(){
+
+            // Aplicar inercia a la rotación del objeto cuando no se está arrastrando
+            if ( dodecahedron && !isPointerDown ) {
+                dodecahedron.rotation.y += velocity.x;
+                dodecahedron.rotation.x += velocity.y;
+                velocity.x *= 0.95;
+                velocity.y *= 0.95;
+                if ( Math.abs( velocity.x ) < 1e-5 ) velocity.x = 0;
+                if ( Math.abs( velocity.y ) < 1e-5 ) velocity.y = 0;
+            }
+
+            // Actualizar controles y renderizar
+            if ( controls ) controls.update();
+            renderer.render( scene, camera );
+        }
+
+
+
+    </script> 
+
+</body>
+</html>
