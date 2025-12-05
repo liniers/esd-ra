@@ -59,13 +59,13 @@
 
 
             // Crear nuestro objeto 3D con maya y texturas
-            /*const geometry = new THREE.DodecahedronGeometry();
+            const geometry = new THREE.DodecahedronGeometry();
             const material = new THREE.MeshBasicMaterial( { color: 0xd0596e } );
             dodecahedron = new THREE.Mesh( geometry, material );
-            dodecahedron.position.z = -5; // Alejar el objeto 3D de la camara*/
+            dodecahedron.position.z = -5; // Alejar el objeto 3D de la camara
 
             // Cargar modelo 3D con GLTFLoader
-            let loader = new GLTFLoader();
+            /*let loader = new GLTFLoader();
             loader.load(MODEL_PATH, function (gltf) {
                     modelo = gltf.scene;
                     modelo.scale.set(1,1,1);
@@ -77,7 +77,7 @@
                 function (error) {
                     console.error(error);
                 }
-            );
+            );*/
 
 
             // Crear luz
@@ -85,7 +85,7 @@
             defaultLight.position.set( 0.5, 1, 0.25 );
 
             // Guardar objeto 3D en la escena
-            // scene.add( dodecahedron );
+            scene.add( dodecahedron );
 
             // Guardar la luz en la escena
             scene.add( defaultLight );
