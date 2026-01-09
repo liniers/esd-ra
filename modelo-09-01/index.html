@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <span class="main-title">Moodycolors</span> -->
+    <!-- <model-viewer> HTML element // auto-rotate-->
+    <model-viewer src="feather.glb"
+    id="modelo"
+    ar ar-modes="webxr scene-viewer quick-look"
+    camera-controls tone-mapping="neutral"
+    poster="poster.webp" shadow-intensity="0"
+    exposure="1"
+    shadow-softness="0"
+    style="background-color: unset;"
+    >
+        <!-- Hotspots -->
+      <button class="Hotspot" slot="hotspot-1" data-position="-0.600063298887703m 4.484426179234744m -1.2076834308776967m" data-normal="0.005065407847212729m 0.9935712656218725m 0.11309501215302173m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Azul</div>
+      </button><button class="Hotspot" slot="hotspot-2" data-position="-0.7540056468034173m 2.2965031495446144m -3.206368633459517m" data-normal="-0.09746901839240807m -0.09765086745731069m -0.9904363172554081m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Rojo</div>
+      </button><button class="Hotspot" slot="hotspot-5" data-position="-0.19016210051143112m 1.625494418311289m -2.988362508187879m" data-normal="0.2562569399675704m -0.4696136476592215m -0.8448641326572324m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Naranja</div>
+      </button><button class="Hotspot" slot="hotspot-8" data-position="1.3847657669894273m 2.3662903003018703m -1.3434365183511925m" data-normal="0.990438792175517m -0.09755843004843359m -0.09753641207460843m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Negro</div>
+      </button><button class="Hotspot" slot="hotspot-9" data-position="-0.21003713913857813m 0.5348878472676075m -0.979342668588282m" data-normal="0.2254060099608908m -0.9565449136922092m 0.18497015641198675m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Amarillo</div>
+      </button><button class="Hotspot" slot="hotspot-10" data-position="-2.1488908403741354m 1.576684127673965m -0.37204879289744675m" data-normal="-0.7786500615716823m -0.4696433092499061m 0.41610004048451227m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Verde claro</div>
+      </button><button class="Hotspot" slot="hotspot-11" data-position="-2.3190913511427405m 2.4363204450174365m -0.22367772453285362m" data-normal="-0.8777151762234713m -0.09754517107011344m 0.469149239611345m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Verde oscuro</div>
+      </button><button class="Hotspot" slot="hotspot-12" data-position="-2.057774440679456m 3.4485564400853876m -0.27388022662150835m" data-normal="-0.77861779970189m 0.4696303327824903m 0.41617505033098157m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">
+            <span class="Hotspot-title">Azul oscuro</span>
+            <div class="Hotspot-extra-content">
+              <div class="Hotspot-hashtag">#poético #melancólico #abstracto #chill</div>
+              <div class="Hotspot-description">La elegancia en el House, bases sin prisa pero sin pausa, con sonidos muy profundos, calmados, melancólicos... un estilo más abstracto y personal, te sumerge en historias</div>
+              <button class="Hotspot-close">✕</button>
+            </div>
+          </div>
+      </button><button class="Hotspot" slot="hotspot-13" data-position="-2.360751404125322m 2.5705523146026596m -2.1554530306974478m" data-normal="-0.8777099599575381m 0.09756525536749906m -0.46915482213914367m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Blanco</div>
+      </button><button class="Hotspot" slot="hotspot-15" data-position="-0.8905121324722187m 3.512744582866971m -2.917031785819944m" data-normal="-0.08651766633731836m 0.46966398922943026m -0.8785957151230834m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Morado</div>
+      </button>
+        <!-- AR and loading UI elements -->
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+
+       <div class="controls glass" id="color-controls">
+        <button data-color="#ff0000">Red</button>
+        <button data-color="#00ff00">Green</button>
+        <button data-color="#0000ff">Blue</button>
+      </div>
+
+
+    </model-viewer>  
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  </body>
+</html>
